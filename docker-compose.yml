@@ -1,0 +1,17 @@
+version:'1'
+services:
+    web:
+        build:
+        command: :bash -c "python manage.py runserver 0.0.0.0:8000"
+        container_name: djangoProject
+        restart: always
+        volumes: 
+            - .:/djangoProject
+        ports: 
+            - "8000:8000"
+        networks:
+            - ecommerse_net
+
+    networks:
+        ecommerse_net:
+            driver:bridge
